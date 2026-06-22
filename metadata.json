@@ -1,0 +1,10 @@
+{
+  "name": "Smart Scanner",
+  "description": "Scan, organize, and extract text from your documents automatically.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

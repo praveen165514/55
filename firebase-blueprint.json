@@ -1,0 +1,42 @@
+{
+  "projectInfo": {
+    "firestoreRegion": "nam5"
+  },
+  "auth": {
+    "providers": {
+      "anonymous": {
+        "enabled": true
+      },
+      "google": {
+        "enabled": true
+      }
+    }
+  },
+  "firestore": {
+    "rules": {
+      "users": {
+        "matchPath": "/users/{userId}",
+        "allow": {
+          "read": "request.auth != null && request.auth.uid == userId",
+          "write": "request.auth != null && request.auth.uid == userId"
+        },
+        "documents": {
+          "userFolders": {
+            "matchPath": "/customFolders/{folderId}",
+            "allow": {
+              "read": "request.auth != null && request.auth.uid == userId",
+              "write": "request.auth != null && request.auth.uid == userId"
+            }
+          },
+          "scannedDocuments": {
+            "matchPath": "/documents/{documentId}",
+            "allow": {
+              "read": "request.auth != null && request.auth.uid == userId",
+              "write": "request.auth != null && request.auth.uid == userId"
+            }
+          }
+        }
+      }
+    }
+  }
+}
